@@ -1,0 +1,23 @@
+.container {
+  border: solid thin;
+  width: 350px;
+}
+
+.container > div {
+  height: 50px;
+  display: flex;
+}
+
+.container > div > button {
+  width: 25%;
+  height: 100%;
+}
+
+.container > div:nth-child(2) > button:first-child {
+  flex-grow: 2;
+}
+
+.container > div:last-child > button:first-child {
+  flex-grow: 1;
+}
+
