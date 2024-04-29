@@ -8,6 +8,10 @@
   display: flex;
 }
 
+.display {
+  font-size: 40px;
+}
+
 .container > div > button {
   width: 25%;
   height: 100%;
