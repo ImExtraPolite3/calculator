@@ -29,4 +29,3 @@ const operate = function(num1, num2, operator) {
     return division(num1, num2);
   }
 }
-
