@@ -29,3 +29,16 @@ const operate = function(num1, num2, operator) {
     return division(num1, num2);
   }
 }
+
+const populateDisplay = function() {
+  const display = document.getElementById('display');
+  const allNumbers = document.querySelectorAll('.number');
+
+  allNumbers.forEach(eachNumber => {
+    eachNumber.addEventListener('click', () => {
+      display.textContent += eachNumber.textContent;
+    })
+  })
+}
+
+populateDisplay();
