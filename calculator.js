@@ -80,16 +80,9 @@ const getNumber = function() {
           if (num1 !== '' && num2 !== '') {
             num1 = operate(convertNum1, convertNum2, operator).toString();
             convertNum1 = Number(num1);
-            num2 = '0';
-            display.textContent = num1;
-            console.log('num1: ' + num1);
-          }
-
-          if (num2 == '0') {
             num2 = '';
-            num2 += eachNumber.textContent;
-            convertNum2 = Number(num2);
-            console.log('num2: ' + num2);
+            // console.log(convertNum1);
+            display.textContent = convertNum1; // Why isnt this working
           }
         })
       });
@@ -100,20 +93,18 @@ const getNumber = function() {
   })
 }
 
-function check() {
-  const allOperators = document.querySelectorAll('.operator');
-  let convertNum1 = Number(num1);
-  let convertNum2 = Number(num2);
+function clear() {
+  const clearAll = document.getElementById('clear');
+  const display = document.getElementById('display');
 
-  if (num1 !== '' && num2 !== '') {
-    allOperators.forEach(eachOperator => {
-      eachOperator.addEventListener('click', () => {
-        num1 = operate(convertNum1, convertNum2, operator).toString;
-      })
-    })
-  }
+  clearAll.addEventListener('click', () => {
+    num1 = '';
+    num2 = '';
+    operator = '';
+    display.textContent = '';
+  });
 }
 
 populateDisplay();
-// check();
 getNumber();
+clear();
