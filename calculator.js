@@ -33,11 +33,29 @@ const operate = function(num1, num2, operator) {
 const populateDisplay = function() {
   const display = document.getElementById('display');
   const allNumbers = document.querySelectorAll('.number');
+  const allOperators = document.querySelectorAll('.operator');
+  const equal = document.getElementById('equal');
 
   allNumbers.forEach(eachNumber => {
     eachNumber.addEventListener('click', () => {
-      display.textContent += eachNumber.textContent;
+      if (operator == '') {
+        display.textContent += eachNumber.textContent;
+      } 
+
+      allOperators.forEach(eachOperator => {
+        eachOperator.addEventListener('click', () => {
+          display.textContent = '';
+        });
+      })
+
+      if (operator !== '') {
+        display.textContent += eachNumber.textContent;
+      }
     })
+  })
+  equal.addEventListener('click', () => {
+    display.textContent = '';
+    display.textContent = getNumber();
   })
 }
 
@@ -47,7 +65,6 @@ const getNumber = function() {
   const equal = document.getElementById('equal');
   let convertNum1;
   let convertNum2;
-  let something;
 
   allNumbers.forEach(eachNumber => {
     eachNumber.addEventListener('click', () => {
@@ -67,9 +84,9 @@ const getNumber = function() {
     });
   })
   equal.addEventListener('click', () => {
-    console.log(operate(convertNum1, convertNum2, operator));
+    return operate(convertNum1, convertNum2, operator);
   })
 }
 
 populateDisplay();
-getNumber();
+// getNumber();
