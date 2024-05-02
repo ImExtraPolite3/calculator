@@ -53,16 +53,13 @@ const populateDisplay = function() {
       }
     })
   })
-  equal.addEventListener('click', () => {
-    display.textContent = '';
-    display.textContent = getNumber();
-  })
 }
 
 const getNumber = function() {
   const allNumbers = document.querySelectorAll('.number');
   const allOperators = document.querySelectorAll('.operator');
   const equal = document.getElementById('equal');
+  const display = document.getElementById('display');
   let convertNum1;
   let convertNum2;
 
@@ -79,14 +76,44 @@ const getNumber = function() {
       allOperators.forEach(eachOperator => {
         eachOperator.addEventListener('click', () => {
           operator = eachOperator.textContent;
+
+          if (num1 !== '' && num2 !== '') {
+            num1 = operate(convertNum1, convertNum2, operator).toString();
+            convertNum1 = Number(num1);
+            num2 = '0';
+            display.textContent = num1;
+            console.log('num1: ' + num1);
+          }
+
+          if (num2 == '0') {
+            num2 = '';
+            num2 += eachNumber.textContent;
+            convertNum2 = Number(num2);
+            console.log('num2: ' + num2);
+          }
         })
       });
     });
   })
   equal.addEventListener('click', () => {
-    return operate(convertNum1, convertNum2, operator);
+     display.textContent = operate(convertNum1, convertNum2, operator);
   })
 }
 
+function check() {
+  const allOperators = document.querySelectorAll('.operator');
+  let convertNum1 = Number(num1);
+  let convertNum2 = Number(num2);
+
+  if (num1 !== '' && num2 !== '') {
+    allOperators.forEach(eachOperator => {
+      eachOperator.addEventListener('click', () => {
+        num1 = operate(convertNum1, convertNum2, operator).toString;
+      })
+    })
+  }
+}
+
 populateDisplay();
-// getNumber();
+// check();
+getNumber();
