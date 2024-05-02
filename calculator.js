@@ -81,15 +81,17 @@ const getNumber = function() {
             num1 = operate(convertNum1, convertNum2, operator).toString();
             convertNum1 = Number(num1);
             num2 = '';
-            // console.log(convertNum1);
-            display.textContent = convertNum1; // Why isnt this working
+            console.log(num1); // Why does this work but below doesnt?
+            display.textContent = num1; // Why isnt this working.
           }
         })
       });
     });
   })
   equal.addEventListener('click', () => {
-     display.textContent = operate(convertNum1, convertNum2, operator);
+    num1 = operate(convertNum1, convertNum2, operator);
+    num2 = '';
+    display.textContent = num1;
   })
 }
 
