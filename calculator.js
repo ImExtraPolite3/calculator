@@ -42,15 +42,15 @@ const populateDisplay = function() {
         display.textContent += eachNumber.textContent;
       } 
 
+      if (operator !== '') {
+        display.textContent += eachNumber.textContent;
+      }
+
       allOperators.forEach(eachOperator => {
         eachOperator.addEventListener('click', () => {
           display.textContent = '';
         });
       })
-
-      if (operator !== '') {
-        display.textContent += eachNumber.textContent;
-      }
     })
   })
 }
@@ -82,7 +82,7 @@ const getNumber = function() {
             convertNum1 = Number(num1);
             num2 = '';
             console.log(num1); // Why does this work but below doesnt?
-            display.textContent = num1; // Why isnt this working.
+            // display.textContent = num1; // Why isnt this working.
           }
         })
       });
@@ -90,6 +90,7 @@ const getNumber = function() {
   })
   equal.addEventListener('click', () => {
     num1 = operate(convertNum1, convertNum2, operator);
+    convertNum1 = Number(num1);
     num2 = '';
     display.textContent = num1;
   })
