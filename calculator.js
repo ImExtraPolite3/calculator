@@ -34,7 +34,6 @@ const populateDisplay = function() {
   const display = document.getElementById('display');
   const allNumbers = document.querySelectorAll('.number');
   const allOperators = document.querySelectorAll('.operator');
-  const equal = document.getElementById('equal');
 
   allNumbers.forEach(eachNumber => {
     eachNumber.addEventListener('click', () => {
@@ -81,8 +80,7 @@ const getNumber = function() {
             num1 = operate(convertNum1, convertNum2, operator).toString();
             convertNum1 = Number(num1);
             num2 = '';
-            console.log(num1); // Why does this work but below doesnt?
-            // display.textContent = num1; // Why isnt this working.
+            console.log(num1); // Will come back to this later.
           }
         })
       });
