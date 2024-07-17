@@ -69,14 +69,56 @@ function getSecondNumber() {
   })
 }
 
-function testOperate() {
+function displayNumbers() {
+  const display = document.getElementById('display');
+  const all_numbers = document.querySelectorAll('.number');
+
+  all_numbers.forEach(number => {
+    number.addEventListener('click', () => {
+      if (num2 === '') {
+        display.textContent += number.textContent; 
+      } else {
+        display.textContent += number.textContent; 
+      }
+    })
+  })
+}
+
+function clearFirstNumber() {
+  const display = document.getElementById('display');
+  const all_operator = document.querySelectorAll('.operator');
+  
+  all_operator.forEach(each_operator => {
+    each_operator.addEventListener('click', () => {
+      display.textContent = '';
+    })
+  })
+}
+
+function displayAnswer() {
+  const display = document.getElementById('display');
   const equal = document.getElementById('equal');
 
   equal.addEventListener('click', () => {
-    console.log(operate(Number(num1), Number(num2), operator))
+    display.textContent = operate(Number(num1), Number(num2), operator);
+  })
+}
+
+function clear() {
+  const display = document.getElementById('display');
+  const clear = document.getElementById('clear')
+
+  clear.addEventListener('click', () => {
+    num1 = '';
+    num2 = '';
+    operator = ''
+    display.textContent = '';
   })
 }
 
 getFirstNumber();
 getSecondNumber();
-testOperate();
+displayNumbers();
+clearFirstNumber();
+displayAnswer();
+clear();
