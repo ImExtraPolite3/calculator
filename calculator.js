@@ -38,17 +38,18 @@ function getFirstNumber(callback) {
       if (operator === '') {
         num1 += number.textContent;
       }
-      callback();
+      callback(clearFirstNumber);
     })
   })
 }
 
-function getOperator() {
+function getOperator(callback) {
   const all_operator = document.querySelectorAll('.operator');
 
   all_operator.forEach(each_operator => {
     each_operator.addEventListener('click', () => {
       operator = each_operator.textContent;
+      callback(); 
     })
   })
 }
@@ -65,25 +66,23 @@ function getSecondNumber() {
   })
 }
 
-function displayExpression() {
+function displayNumbers() {
   const display = document.getElementById('display');
   const all_numbers = document.querySelectorAll('.number');
-  const all_operator = document.querySelectorAll('.operator');
-
 
   all_numbers.forEach(number => {
     number.addEventListener('click', () => {
       display.textContent += number.textContent;
-      
-      all_operator.forEach(each_operator => {
-        each_operator.addEventListener('click', () => {
-          display.textContent += each_operator.textContent;
-        })
-      })
-
-      // display.textContent += number.textContent;
     })
   })
+}
+
+function clearFirstNumber() {
+  const display = document.getElementById('display');
+
+  if (num2 === '') {
+    display.textContent = '';
+  }
 }
 
 function displayAnswer() {
@@ -100,7 +99,6 @@ function displayAnswer() {
       if (num2 !== '') {
         num1 = operate(Number(num1), Number(num2), operator);
         num2 = '';
-        operator = ''
         display.textContent = num1;
       } 
     })
@@ -142,7 +140,7 @@ function clear() {
 
 getFirstNumber(getOperator);
 getSecondNumber();
-displayExpression();
+displayNumbers();
 displayAnswer();
 boldOperator();
 clear();

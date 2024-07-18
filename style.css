@@ -1,4 +1,5 @@
 body {
+  font-family: sans-serif;
   display: flex;
   justify-content: center;
 }
@@ -6,20 +7,27 @@ body {
 .container {
   border: solid thin;
   width: 350px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .container > div {
   height: 50px;
   display: flex;
+  margin: 10px;
+  gap: 10px;
 }
 
 #display {
+  border: solid;
   font-size: 40px;
+  overflow: hidden;
 }
 
 .container > div > button {
   width: 25%;
   height: 100%;
+  font-size: 1.2rem;
 }
 
 .container > div:nth-child(2) > button:first-child {
@@ -34,5 +42,3 @@ body {
   background-color: black;
   color: white;
 }
-
-
