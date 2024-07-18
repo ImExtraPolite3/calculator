@@ -107,15 +107,7 @@ function displayAnswer() {
 
 function boldOperator() {
   const all_operator = document.querySelectorAll('.operator');
-  const equal = document.getElementById('equal');
   const all_numbers = document.querySelectorAll('.number');
-
-
-  all_operator.forEach(each_operator => {
-    each_operator.addEventListener('click', () => {
-      each_operator.classList.add('bold-operator');
-    })
-  })
 
   all_numbers.forEach(each_number => {
     each_number.addEventListener('click', () => {
@@ -123,6 +115,21 @@ function boldOperator() {
         each_operator.classList.remove('bold-operator');
       })
     })
+  })
+
+  all_operator.forEach(each_operator => {
+    each_operator.addEventListener('click', () => {
+      manyOperators();
+      each_operator.classList.add('bold-operator');
+    })
+  })
+}
+
+function manyOperators() {
+  const all_operator = document.querySelectorAll('.operator');
+
+  all_operator.forEach(each_operator => {
+    each_operator.classList.remove('bold-operator');
   })
 }
 

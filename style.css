@@ -9,6 +9,7 @@ body {
   width: 350px;
   padding: 20px;
   border-radius: 10px;
+  background-color: black;
 }
 
 .container > div {
@@ -22,12 +23,15 @@ body {
   border: solid;
   font-size: 40px;
   overflow: hidden;
+  background-color: white;
 }
 
 .container > div > button {
   width: 25%;
   height: 100%;
   font-size: 1.2rem;
+  border: solid;
+  border-radius: 10px;
 }
 
 .container > div:nth-child(2) > button:first-child {
@@ -41,4 +45,5 @@ body {
 .bold-operator {
   background-color: black;
   color: white;
+  border: solid white;
 }
