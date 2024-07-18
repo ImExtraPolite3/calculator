@@ -30,4 +30,9 @@ body {
   flex-grow: 1;
 }
 
+.bold-operator {
+  background-color: black;
+  color: white;
+}
+
 
