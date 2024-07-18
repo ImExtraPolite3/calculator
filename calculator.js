@@ -37,7 +37,6 @@ function getFirstNumber() {
     number.addEventListener('click', () => {
       if (operator === '') {
         num1 += number.textContent;
-        console.log(num1);
       }
 
       getOperator();
@@ -51,7 +50,6 @@ function getOperator() {
   all_operator.forEach(each_operator => {
     each_operator.addEventListener('click', () => {
       operator = each_operator.textContent;
-      console.log(operator);
     })
   })
 }
@@ -63,7 +61,6 @@ function getSecondNumber() {
     number.addEventListener('click', () => {
       if (operator !== '') {
         num2 += number.textContent;
-        console.log(num2);
       }
     })
   })
@@ -98,9 +95,20 @@ function clearFirstNumber() {
 function displayAnswer() {
   const display = document.getElementById('display');
   const equal = document.getElementById('equal');
+  const all_operator = document.querySelectorAll('.operator');
 
   equal.addEventListener('click', () => {
     display.textContent = operate(Number(num1), Number(num2), operator);
+  })
+
+  all_operator.forEach(each_operator => {
+    each_operator.addEventListener('click', () => {
+      if (num2 !== '') {
+        num1 = operate(Number(num1), Number(num2), operator);
+        num2 = '';
+        display.textContent = num1;
+      } 
+    })
   })
 }
 
